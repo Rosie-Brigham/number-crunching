@@ -110,51 +110,79 @@ class Calculate
   end
 
   def two_pounds(number)
-    @two_coin = number / 200
-    @running_number = number - @two_coin * 200
-    
-    @two = "#{@two_coin} x £2 coins,"
+    two_coin = number / 200
+      if two_coin == 0
+        @two = ""
+      else
+        @two = "#{two_coin} x £2 coins,"
+      end
+
+    @running_number = number - two_coin * 200
   end
 
   def one_pound(number)
-    @one_coin = number / 100
-    @running_number = number - @one_coin * 100
-    @one =  "#{@one_coin} x £1 coins,"
+    one_coin = number / 100
+      if one_coin == 0
+        @one =""
+      else
+        @one =  "#{one_coin} x £1 coins,"
+      end
+    @running_number = number - one_coin * 100
   end
 
   def fifty_pence(number)
-    @fif_coin = number / 50
-    @running_number = number - (@fif_coin * 50)
-    @fifty = "#{@fif_coin} x 50p coins,"
+    fif_coin = number / 50
+      if fif_coin == 0
+        @fifty = ""
+      else
+        @fifty = "#{fif_coin} x 50p coins,"
+      end
+    @running_number = number - (fif_coin * 50)
   end
 
   def twenty_pence(number)
-    @twen_coin = number / 20
-    @running_number = number - (@twen_coin * 20)
-    @twenty = "#{@twen_coin} x 20p coins,"
+    twen_coin = number / 20
+      if twen_coin == 0
+        @twenty = ""
+      else
+        @twenty = "#{twen_coin} x 20p coins,"
+      end
+    @running_number = number - (twen_coin * 20)  
   end
 
   def ten_pence(number)
-    @ten_coin = number / 10
-    @running_number = number - (@ten_coin * 10)
-    @ten = "#{@ten_coin} x 10p coins,"
+    ten_coin = number / 10
+      if ten_coin == 0
+        @ten = ""
+      else
+        @ten = "#{ten_coin} x 10p coins,"
+      end
+    @running_number = number - (ten_coin * 10)
   end
 
   def five_pence(number)
-    @five_coin = number / 5
-    @running_number = number - (@five_coin * 5)
-    @five = "#{@five_coin} x 5p coins,"
+    five_coin = number / 5
+      if five_coin == 0
+        @ten = ""
+      else
+        @ten = "#{five_coin} x 5p coins,"
+      end
+    @running_number = number - (five_coin * 5)
   end
 
   def two_pence(number)
-    @t_coin = number / 2
-    @running_number = number - (@t_coin * 2)
-    @tpence = "#{@t_coin} x 2p coins,"
+    t_coin = number / 2
+      if t_coin == 0
+        @tpence = ""
+      else
+        @tpence = "#{t_coin} x 2p coins,"
+      end
+    @running_number = number - (t_coin * 2)
   end
 
   def one_pence(number)
-    @coin = number / 1
-    @opence = "#{@coin} x 1p"
+    coin = number / 1
+    @opence = "#{coin} x 1p"
   end
 
   def result
