@@ -1,3 +1,7 @@
+# please note - this is the original file in which I played around with the original methods etc
+# I have included it so as to demonstrate a part of my approach to the task
+
+
 puts 'please enter your price'
 original_imput = gets.chomp
 @running_number = @number
