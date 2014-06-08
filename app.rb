@@ -5,7 +5,7 @@ get '/' do
 end
 
 post '/' do
-  @result = Calculate.new(params[:amount]).number
+  @result = Calculate.new(params[:amount]).result
   @face = "face"
   erb :result
 end
@@ -16,6 +16,7 @@ class Calculate
 
   def initialize(amount)
     check_layout(amount)
+    check_number(@number)
   end
 
   def check_layout(original_imput)
@@ -77,7 +78,111 @@ class Calculate
     end
   end
 
-  def number
-    @number
+  def check_number(number)
+    # @running_number = number
+    if number >= 200
+      two_pounds(number)
+      one_pound(@running_number)
+      fifty_pence(@running_number)
+      twenty_pence(@running_number)
+      ten_pence(@running_number)
+      five_pence(@running_number)
+      two_pence(@running_number)
+      one_pence(@running_number)
+    elsif number >= 100
+      one_pound(number)
+      fifty_pence(@running_number)
+      twenty_pence(@running_number)
+      ten_pence(@running_number)
+      five_pence(@running_number)
+      two_pence(@running_number)
+      one_pence(@running_number)    
+    elsif number >= 50
+      fifty_pence(number)
+      twenty_pence(@running_number)
+      ten_pence(@running_number)
+      five_pence(@running_number)
+      two_pence(@running_number)
+      one_pence(@running_number) 
+    elsif number >= 20
+      twenty_pence(number)
+      ten_pence(@running_number)
+      five_pence(@running_number)
+      two_pence(@running_number)
+      one_pence(@running_number) 
+    elsif number >= 10
+      ten_pence(number)
+      five_pence(@running_number)
+      two_pence(@running_number)
+      one_pence(@running_number) 
+    elsif number >= 5
+      five_pence(number)
+      two_pence(@running_number)
+      one_pence(@running_number) 
+    elsif number >= 2
+      two_pence(number)
+      one_pence(@running_number) 
+    elsif number >= 1
+      one_pence(number) 
+    else 
+      puts 'wrong number!'
+    end
+
+
+  end
+
+  def two_pounds(number)
+    puts "foo face"
+    puts number
+    @two_coin = number / 200
+    @running_number = number - @two_coin * 200
+    puts ""
+  end
+
+  def one_pound(number)
+    @one_coin = number / 100
+    @running_number = number - @one_coin * 100
+    puts ""
+  end
+
+  def fifty_pence(number)
+    @fif_coin = number / 50
+    @running_number = number - (@fif_coin * 50)
+  puts ""
+  end
+
+  def twenty_pence(number)
+    @twen_coin = number / 20
+    @running_number = number - (@twen_coin * 20)
+    puts ""
+  end
+
+  def ten_pence(number)
+    @ten_coin = number / 10
+    @running_number = number - (@ten_coin * 10)
+    puts ""
+  end
+
+  def five_pence(number)
+    @five_coin = number / 5
+    @running_number = number - (@five_coin * 5)
+    puts ""
+  end
+
+  def two_pence(number)
+    @t_coin = number / 2
+    @running_number = number - (@t_coin * 2)
+    puts ""
+  end
+
+  def one_pence(number)
+    @coin = number / 1
+    puts ""
+  end
+
+
+  def result
+    "You need #{@two_coin} x £2 coin, #{@one_coin} x £1 coin, #{@fif_coin} x 50p, #{@twen_coin} x 20p coin
+    #{@ten_coin} x 10p coin, #{@five_coin} x 5p coin, #{@t_coin} x 2p coin, #{@coin} x 1p"
   end
 end
