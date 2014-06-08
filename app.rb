@@ -24,22 +24,19 @@ class Calculate
   end
 
   def check_layout(original_imput)
-    if original_imput.match(/[.?]/) 
+    if original_imput.match(/[^£p, 0-9, .]/)
+      @number = 0
+   
+    elsif original_imput.match(/[.?]/) 
       when_decimal(original_imput)
     else
       if original_imput.match(/[£]/)
         letters_removedm = original_imput.gsub(/[^0-9]/, '')
         letters_removed = original_imput.gsub(/[^0-9, .]/, '').to_i
         @number = letters_removed * 100
-
       elsif original_imput.match(/[p]/)
         letters_removed = original_imput.gsub(/[^0-9]/, '')
         @number = original_imput.gsub(/[^0-9, .]/, '').to_i
-
-      elsif original_imput.match(/[^£p, 0-9, .]/)
-        puts "not valid input, I am sorry"
-      
-
       else
         @number = original_imput.to_i
       end
