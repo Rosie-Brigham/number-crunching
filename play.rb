@@ -1,10 +1,11 @@
 puts 'please enter your price'
 original_imput = gets.chomp
-# @running_number = @number
+@running_number = @number
 
 def check_number(number)
+  # @running_number = number
   if number >= 200
-    two_pounds(@running_number)
+    two_pounds(number)
     one_pound(@running_number)
     fifty_pence(@running_number)
     twenty_pence(@running_number)
@@ -13,7 +14,7 @@ def check_number(number)
     two_pence(@running_number)
     one_pence(@running_number)
   elsif number >= 100
-    one_pound(@running_number)
+    one_pound(number)
     fifty_pence(@running_number)
     twenty_pence(@running_number)
     ten_pence(@running_number)
@@ -21,32 +22,32 @@ def check_number(number)
     two_pence(@running_number)
     one_pence(@running_number)    
   elsif number >= 50
-    fifty_pence(@running_number)
+    fifty_pence(number)
     twenty_pence(@running_number)
     ten_pence(@running_number)
     five_pence(@running_number)
     two_pence(@running_number)
     one_pence(@running_number) 
   elsif number >= 20
-    twenty_pence(@running_number)
+    twenty_pence(number)
     ten_pence(@running_number)
     five_pence(@running_number)
     two_pence(@running_number)
     one_pence(@running_number) 
   elsif number >= 10
-    ten_pence(@running_number)
+    ten_pence(number)
     five_pence(@running_number)
     two_pence(@running_number)
     one_pence(@running_number) 
   elsif number >= 5
-    five_pence(@running_number)
+    five_pence(number)
     two_pence(@running_number)
     one_pence(@running_number) 
   elsif number >= 2
-    two_pence(@running_number)
+    two_pence(number)
     one_pence(@running_number) 
   elsif number >= 1
-    one_pence(@running_number) 
+    one_pence(number) 
   else 
     puts 'wrong number!'
   end
@@ -55,44 +56,46 @@ def check_number(number)
 end
 
 def two_pounds(number)
+  puts "foo face"
+  puts number
   two_coin = number / 200
-  @running_number = @running_number - two_coin * 200
+  @running_number = number - two_coin * 200
   puts "#{two_coin} x £2 coin"
 end
 
 def one_pound(number)
   one_coin = number / 100
-  @running_number = @running_number - one_coin * 100
+  @running_number = number - one_coin * 100
   puts "#{one_coin} x £1 coin"
 end
 
 def fifty_pence(number)
   fif_coin = number / 50
-  @running_number = @running_number - (fif_coin * 50)
+  @running_number = number - (fif_coin * 50)
 puts "#{fif_coin} x 50p"
 end
 
 def twenty_pence(number)
   twen_coin = number / 20
-  @running_number = @running_number - (twen_coin * 20)
+  @running_number = number - (twen_coin * 20)
   puts "#{twen_coin} x 20p coin"
 end
 
 def ten_pence(number)
   ten_coin = number / 10
-  @running_number = @running_number - (ten_coin * 10)
+  @running_number = number - (ten_coin * 10)
   puts "#{ten_coin} x 10p coin"
 end
 
 def five_pence(number)
   five_coin = number / 5
-  @running_number = @running_number - (five_coin * 5)
+  @running_number = number - (five_coin * 5)
   puts "#{five_coin} x 5p coin"
 end
 
 def two_pence(number)
   t_coin = number / 2
-  @running_number = @running_number - (t_coin * 2)
+  @running_number = number - (t_coin * 2)
   puts "#{t_coin} x 2p coin"
 end
 
@@ -162,44 +165,9 @@ def when_decimal(original_imput)
     end
   end
 end
-# if original_imput == 4
-
-  #   original_imput == 84
-
-  #   original_imput == 298p
-  #     /([^p])/
-  #   original_imput == 2p
-
-  #   original_imput == 1.84p
-
-  #   original_imput == £1.28p
-
-  #   original_imput == £2
-
-  #   original_imput == £10
-
-  #   original_imput == £1.09
-
-  #   original_imput == £1p
-
-  #   original_imput == £1.p
-
-  #   original_imput == 001.4p
-
-  #   original_imput == 4.234p
-
-  #   original_imput == £1.257422457p 
-
-
-# any digit /([\d])/
-# any digit plus decimal /\d+(\.\d)?/
-# digit after decimal /(\.\d*)/
-# digit before decimal /(\d*\.)/
-
-# round a numbers up - .round(2)
 
 
 check_layout(original_imput)
 puts @number
-# puts "you need"
-# check_number(@number)
+puts "you need"
+check_number(@number)
